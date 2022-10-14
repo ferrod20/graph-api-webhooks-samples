@@ -12,13 +12,13 @@ var app = express();
 var xhub = require('express-x-hub');
 
 app.set('port', (process.env.PORT || 5000));
-app.listen(app.get('port')); //nothing
+app.listen(app.get('port'));
 
 app.use(xhub({ algorithm: 'sha1', secret: process.env.APP_SECRET }));
 app.use(bodyParser.json());
 
 var token = process.env.TOKEN || 'token';
-var received_updates = [{'no no no no n'}];
+var received_updates = [];
 
 app.get('/', function(req, res) {
   console.log(req);
